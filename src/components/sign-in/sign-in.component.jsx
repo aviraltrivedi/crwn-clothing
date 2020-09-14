@@ -3,6 +3,8 @@ import React from 'react';
 import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustonButton from '../custom-button/custom-button.component';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
+
 
 class SignIn extends React.Component{
     constructor(props){
@@ -48,8 +50,10 @@ class SignIn extends React.Component{
                         onChange={this.handleChange}
                         label='Password'
                         required/>
-
-                    <CustonButton type='Submit'>Sign In</CustonButton>
+                    <div className='buttons'>
+                        <CustonButton type='Submit'>Sign In</CustonButton>
+                        <CustonButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustonButton>
+                    </div>
                 </form>
             </div>
         )
